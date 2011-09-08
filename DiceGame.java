@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package dice;
 
 /**
@@ -61,9 +57,8 @@ public class DiceGame {
                 }
                 //get some statistics candy and calculate percentage
                 fPercentage = 100 * iDiceRolls[i] / this.iAmount;
-                System.out.println(i + " was rolled >>" + iDiceRolls[i] + "<< times, that equals >>>" + fPercentage + "<<< %");
+                System.out.println(i + " was rolled >>" + iDiceRolls[i] + "<< times, that equals >>" + fPercentage + "<< %");
             }
-            
         }
     }
 }
