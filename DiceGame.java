@@ -11,6 +11,11 @@ package dice;
 
 import java.util.Scanner;
 
+/**
+ * initialize dices.
+ * now we've got 3, but it's easy to add more
+ * 
+ */
 public class DiceGame {
     private Dice[] dices = new Dice[]
     {
@@ -19,22 +24,30 @@ public class DiceGame {
         new Dice("Dice 3")
     };
     
+    private int iAmount;
+    
+    /**
+     * determine how often to roll the dieces and then just do it
+     */
     public void rollDices()
     {
-        int iAmount;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Let's roll!11! How often?");
-        iAmount = scanner.nextInt();
+        this.iAmount = scanner.nextInt();
         
         for(Dice dice : this.dices) {
-            dice.roll(iAmount);
+            dice.roll(this.iAmount);
         }
     }
     
+    /**
+     * get result of all dices and show them
+     */
     public void showResult()
     {
         int i;
         int[] iDiceRolls;
+        float fPercentage;
         
         for(Dice dice : this.dices) {
             System.out.println("");
@@ -46,8 +59,9 @@ public class DiceGame {
                 if(i == 0) {
                     continue;
                 }
-                
-                System.out.println(i + " was rolled >>" + iDiceRolls[i] + "<< times");
+                //get some statistics candy and calculate percentage
+                fPercentage = 100 * iDiceRolls[i] / this.iAmount;
+                System.out.println(i + " was rolled >>" + iDiceRolls[i] + "<< times, that equals >>>" + fPercentage + "<<< %");
             }
             
         }
